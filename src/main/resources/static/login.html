@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+
+<link rel="shortcut icon" type="image/png" href="chat.png"/>
+<style>  
+	
+    h1 {
+    font-family: Calibri, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: SlateBlue;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+h3{
+  font-family: Calibri; 
+  font-size: 25pt;         
+  font-style: normal; 
+  font-weight: bold; 
+  color:SlateBlue;
+  text-align: center; 
+  text-decoration: underline
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Style the container */
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 20px;
+  }
+
+  label, td {
+    font-weight: bold;
+    color: SlateBlue;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  button, a {
+    background-color: slateblue;
+    color: white;
+    padding: 10px 0;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: slateblue;
+  }
+    *{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body{
+  font-family: montserrat;
+}
+nav{
+  background: SlateBlue;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: black;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: SlateBlue;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+section{
+  background: url(bg1.jpg) no-repeat;
+  background-size: cover;
+  height: calc(100vh - 80px);
+}
+
+</style> 
+</head>
+<body>
+
+<nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">ChatApp </label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+<div class="container">
+  <h1>Login Page</h1>
+
+    <form id="loginForm">
+        
+    <label for="fname">Username</label>
+    <input type="text" placeholder="Enter Username" name="user_name" id="user_name" required>
+    
+    <label for="lname">Password</label>
+    <input type="password" placeholder="Enter Password" name="user_pass" id="user_pass" required>
+    
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button><br>
+    <button type="submit" class="loginbtn">Login</button>
+    </div>
+    </form>
+</div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the form element
+    const form = document.getElementById('loginForm');
+    // Add event listener for form submission
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission
+      event.preventDefault();
+      // Get username and password input values
+      const username = document.getElementById('user_name').value;
+      const password = document.getElementById('user_pass').value;
+      // Check if username and password match
+      if ((username === 'admin' && password === 'admin123') || (username === 'shakil' && password === 'shakil123')) {
+          // Redirect to the specified URL if credentials are valid
+          window.location.href = 'https://chat-app-205.netlify.app/';
+      } 
+      else {
+          // Display an alert if credentials are invalid
+          alert('Invalid username or password. Please try again.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
